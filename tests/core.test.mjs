@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {addItem,subtotal,findProducts,sortProducts,itemKey} from '../dist/core.mjs';
+const a={slug:'tote',price:159.9,option:'Preta',qty:1};
+let cart=addItem([],a);cart=addItem(cart,a);assert.equal(cart.length,1);assert.equal(cart[0].qty,2);assert.equal(subtotal(cart),319.8);
+cart=addItem(cart,{...a,option:'Rosa'});assert.equal(cart.length,2);assert.equal(subtotal(cart),479.7);
+cart=addItem(cart,{...a,custom:'Maria'});assert.equal(cart.length,3);
+assert.notEqual(itemKey(a),itemKey({...a,device:'650 ml'}));
+const products=[{name:'Garrafa Térmica Fresh',slug:'fresh',price:119.9,old_price:199.9},{name:'Tote Daily',slug:'tote',price:159.9,old_price:269.9}];
+assert.equal(findProducts(products,'termica fresh').length,1);assert.equal(findProducts(products,'desconhecido').length,0);
+assert.equal(sortProducts(products,'price-desc')[0].slug,'tote');assert.equal(products[0].slug,'fresh');
+console.log('PASS: carrinho, variantes, personalização, precisão monetária, busca e ordenação');
