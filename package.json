@@ -1,0 +1,22 @@
+{
+  "name": "case-de-estudo-de-site-famoso",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Estudo independente de reprodução da experiência pública da Gocase para análise de melhorias.",
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 3000 --directory dist",
+    "test": "node tests/core.test.mjs && node tests/dom.test.cjs",
+    "verify": "python3 scripts/verify.py"
+  },
+  "devDependencies": {
+    "linkedom": "0.18.15"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GustaGomes-dev/case-de-estudo-de-site-famoso.git"
+  }
+}

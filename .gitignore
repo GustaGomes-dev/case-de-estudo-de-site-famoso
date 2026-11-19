@@ -1,0 +1,7 @@
+reference/
+node_modules/
+*.tar.gz
+*.tar
+.DS_Store
+__pycache__/
+*.py[cod]
